@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/0314c49a29.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script language="javascript" type="text/javascript" src="vote.js"></script>
+    <script language="javascript" type="text/javascript" src="page_1.js"></script>
+
+    <link rel="shortcut icon" type="image/png" href="https://freepngimg.com/download/vote/24877-8-vote-file.png">
+
+    <title>Vote</title>
+
+</head>
+<!-- https://mail.google.com/mail/u/0/?ui=2&view=btop&ver=12bjozvl3amms#attid%253Datt_178332a871276644_0.1_1783329da3e1cd495ae1 -->
+
+<!-- BEST SUGGESTIONS OF BACKGROUND -->
+<!-- For results: https://flevix.com/wp-content/uploads/2019/12/bubble-animated-background.svg -->
+<!-- For Normal Section1.html: https://www.teahub.io/photos/full/278-2789047_light-colour-background-hd.jpg -->
+<!-- For Normal Section1.html: https://papers.co/wallpaper/papers.co-sg20-light-blue-gradation-blur-29-wallpaper.jpg -->
+<!-- For Normal Section1.html: https://img.freepik.com/free-vector/shiny-white-gray-background-with-wavy-lines_1017-25101.jpg?size=626&ext=jpg&ga=GA1.2.1848117684.1610150400 -->
+<!-- For Normal Section1.html: https://image.freepik.com/free-vector/shiny-white-gray-background-with-wavy-lines_1017-25101.jpg -->
+<!-- For Normal Section1.html: -->
+<!-- For User's Exit and Output: -->
+
+<!-- <style>
+  #hero_box {
+    background-image: url('https://www.teahub.io/photos/full/278-2789047_light-colour-background-hd.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: lighten;
+  }
+</style> -->
+
+<body style="background-image: url('https://www.teahub.io/photos/full/278-2789047_light-colour-background-hd.jpg'); background-size: cover; background-repeat: no-repeat; background-blend-mode: lighten">
+    <h1 id="instruction">Instructions for voting: </h1>
+
+    <div id="instr">
+        <ol>
+            <li>Choose your preference by selecting any radio button from 1 (your most favourite) to 5 (your least favourite)</li><br>
+            <li>You can also select "No preference" radio button if you don't feel like or you're confused in which one to select for a particular SRC member shown</li><br>
+            <li>Once you have chosen your preference for a particular SRC member, you can click the "next member" button to proceed to next member. NOTE: you cannot proceed to vote for the next member until you select any preference</li><br>
+            <li>You can click the "submit votes" button to submit your final preferences for every member</li><br>
+            <li>Your preferences will then be recorded</li><br>
+        </ol>
+
+        <style>
+          #instr {
+            text-align:left;
+          }
+        </style>
+
+        <!-- <img src="https://waynecountypa.gov/ImageRepository/Document?documentID=2926"> -->
+    </div>
+
+    <button id="move" onclick="move()">Let's vote</button>
+
+    <style>
+    /* CSS for Radio button selection */
+        .inputGroup {
+            background-color: #fff;
+            display: block;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .inputGroup label {
+            padding: 12px 20px;
+            width: 100%;
+            display: block;
+            text-align: left;
+            color: #3C454C;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            transition: color 200ms ease-in;
+            overflow: hidden;
+        }
+
+        .inputGroup label:before {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            content: "";
+            background-color: #5562eb;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale3d(1, 1, 1);
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            z-index: -1;
+            /* border: 2px solid black;
+            border-radius: 8px; */
+        }
+
+        .inputGroup label:after {
+            width: 32px;
+            height: 32px;
+            content: "";
+            border: 2px solid #D1D7DC;
+            background-color: #fff;
+            background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+            background-repeat: no-repeat;
+            background-position: 2px 3px;
+            border-radius: 50%;
+            z-index: 2;
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            transition: all 200ms ease-in;
+        }
+
+        .inputGroup input:checked ~ label {
+            color: #fff;
+        }
+
+        .inputGroup input:checked ~ label:before {
+            transform: translate(-50%, -50%) scale3d(56, 56, 1);
+            opacity: 1;
+        }
+
+        .inputGroup input:checked ~ label:after {
+            background-color: #54E0C7;
+            border-color: #54E0C7;
+        }
+
+        .inputGroup input {
+            width: 32px;
+            height: 32px;
+            order: 1;
+            z-index: 2;
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            visibility: hidden;
+        }
+
+        .form {
+            padding: 0 16px;
+            max-width: 550px;
+            margin: 50px auto;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 36px;
+        }
+
+        body {
+            background-color: #D1D7DC;
+            font-family: "Fira Sans", sans-serif;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+
+        html {
+            box-sizing: border-box;
+        }
+
+        code {
+            background-color: #9AA3AC;
+            padding: 0 8px;
+        }
+        .photo{
+          width: auto;
+          height: 200px;
+        }
+    </style>
+
+    
+    <div id="container">
+        <h2>SRC Member 1</h2>
+        <img src="Charmin_M1.jpeg" class="photo">
+        <p>PATEL, Charminkumar</p>
+        <p>Charminkumar Patel studies in 12th grade and is diligent and tries his best to achieve well in all his subjects and HSC.
+        He is Indian-Hindu background and after completing school, he would like to study along the career path of engineering / IT line of degrees at University.
+        </p>
+        <a href="#">Member's Speech link</a>
+        
+        <div class="form">
+            Preference:
+                <div class="inputGroup">
+                  <input value="1" id="one" name="radio" type="radio"/>
+                  <label for="one">1</label>
+                </div>
+
+                <div class="inputGroup">
+                  <input value="2" id="two" name="radio" type="radio"/>
+                  <label for="two">2</label>
+                </div>
+
+                <div class="inputGroup">
+                  <input value="3" id="three" name="radio" type="radio"/>
+                  <label for="three">3</label>
+                </div>
+
+                <div class="inputGroup">
+                  <input value="4" id="four" name="radio" type="radio"/>
+                  <label for="four">4</label>
+                </div>
+
+                <div class="inputGroup">
+                  <input value="5" id="five" name="radio" type="radio"/>
+                  <label for="five">5</label>
+                </div>
+
+                <div class="inputGroup">
+                  <input value="No Preference" id="NA" name="radio" type="radio"/>
+                  <label for="NA">No Preference</label>
+                </div>
+        </div>
+    </div>
+
+    <div id="member_1">
+      <!-- <h2 id="proceed">Next Member</h2> -->
+      <button id="member1" onclick="member1()"><i class="far fa-caret-square-right" id="icon1"></i></button><br>
+    </div>
+
+    <div id="container_1">
+        <h2>SRC Member 2</h2>
+        <img src="Melika_M2.jpeg" class="photo">
+        <p>AZIMI, Melika</p>
+        <p>Compassionate and optimistic about her future, highly outspoken and deeply empathetic which naturally resulted in her
+          taking on a lot of leadership roles both in and out of school.</p>
+        <a href="https://drive.google.com/file/d/1o1pGcYSJPLt7WB1KnP0R9yxA-H3fCJou/view">Member's Speech Link</a>
+
+        <div class="form">
+            Preference:
+              <div class="inputGroup">
+                <input value="1" id="one1" name="radio1" type="radio"/>
+                <label for="one1">1</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="2" id="two1" name="radio1" type="radio"/>
+                <label for="two1">2</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="3" id="three1" name="radio1" type="radio"/>
+                <label for="three1">3</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="4" id="four1" name="radio1" type="radio"/>
+                <label for="four1">4</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="5" id="five1" name="radio1" type="radio"/>
+                <label for="five1">5</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="No Preference" id="NA2" name="radio1" type="radio"/>
+                <label for="NA2">No Preference</label>
+              </div>
+        </div>
+
+    </div>
+    
+
+    <div id="member_2">
+      <button id="member2" onclick="member2()"><i class="far fa-caret-square-right" id="icon2"></i></button>
+    </div>
+
+    <div id="container_2">
+        <h2>SRC Member 3</h2>
+        <img src="Henry_M5.jpeg" class="photo">
+        <p>LIM, Henry</p>
+        <p>He is pretty easy going and his favourite subject is Mathematics. He likes to achieve his best and motivate and help everyone at every point</p>
+        <a href="https://drive.google.com/file/d/1-qA-h6aYnmONSTduBzpx5Eq5H04v2X4m/view">Member's Speech Link</a>
+
+        <div class="form">
+            Preference:
+              <div class="inputGroup">
+                <input value="1" id="one2" name="radio2" type="radio"/>
+                <label for="one2" class="label1">1</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="2" id="two2" name="radio2" type="radio"/>
+                <label for="two2" class="label1">2</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="3" id="three2" name="radio2" type="radio"/>
+                <label for="three2" class="label1">3</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="4" id="four2" name="radio2" type="radio"/>
+                <label for="four2" class="label1">4</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="5" id="five2" name="radio2" type="radio"/>
+                <label for="five2" class="label1">5</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="No Preference" id="NA3" name="radio2" type="radio"/>
+                <label for="NA3" class="label1">No Preference</label>
+              </div>
+        </div>
+
+    </div>
+
+    <!-- <div id="member-3">
+      <button id="member_three" onclick="member_3()"><i class="far fa-caret-square-left" id="icon_3"></i></button>
+    </div> -->
+
+    <div id="member_3">
+      <!-- <h2 id="proceed">Next Member</h2> -->
+      <button id="member3" onclick="member3()"><i class="far fa-caret-square-right" id="icon3"></i></button>
+    </div>
+
+    <div id="container_3">
+        <h2>SRC Member 4</h2>
+        <img src="Simar_M4.jpeg" class="photo">
+        <p>GILL, Simardeep</p>
+        <p>A confident and active girl who likes to participate in extracurricular activities.
+          She seeks to help everyone at every point.
+        </p>
+        <a href="https://drive.google.com/file/d/1zrjACba6jLqXJvvWEB68wzXk-L2pfqSi/view">Member's Speech Link</a>
+
+        <div class="form">
+            Preference:
+              <div class="inputGroup">
+                <input value="1" id="one3" name="radio3" type="radio"/>
+                <label for="one3" class="label1">1</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="2" id="two3" name="radio3" type="radio"/>
+                <label for="two3" class="label1">2</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="3" id="three3" name="radio3" type="radio"/>
+                <label for="three3" class="label1">3</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="4" id="four3" name="radio3" type="radio"/>
+                <label for="four3" class="label1">4</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="5" id="five3" name="radio3" type="radio"/>
+                <label for="five3" class="label1">5</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="No Preference" id="NA4" name="radio3" type="radio"/>
+                <label for="NA4" class="label1">No Preference</label>
+              </div>
+        </div>
+    
+    </div> 
+
+    <div id="member_4">
+      <button id="member4" onclick="member4()"><i class="far fa-caret-square-right" id="icon4"></i></button>
+    </div>
+
+    <div id="container_4">
+        <h2>SRC Member 5</h2>
+        <img src="Lucrecia_M6.jpeg" class="photo">
+        <p>PHUNG, Lucrecia</p>
+        <p>She is a very passionate and keen girl who is mostly nterested in studying business studies
+          Communication is her focus as a student leader, and she will endeavour to ensure 
+          effective communication between students and staff at APHS and work to develop improved communication channels at all times.
+        </p>
+        <a href="https://drive.google.com/file/d/18aw4iHUVIx0MALi0X9iAMtDdCGgxjl2E/view">Member's Speech Link</a>
+
+        <div class="form">
+            Preference:
+              <div class="inputGroup">
+                <input value="1" id="one4" name="radio4" type="radio"/>
+                <label for="one4" class="label1">1</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="2" id="two4" name="radio4" type="radio"/>
+                <label for="two4" class="label1">2</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="3" id="three4" name="radio4" type="radio"/>
+                <label for="three4" class="label1">3</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="4" id="four4" name="radio4" type="radio"/>
+                <label for="four4" class="label1">4</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="5" id="five4" name="radio4" type="radio"/>
+                <label for="five4" class="label1">5</label>
+              </div>
+
+              <div class="inputGroup">
+                <input value="No Preference" id="NA5" name="radio4" type="radio"/>
+                <label for="NA5" class="label1">No Preference</label>
+              </div>
+        </div>
+
+    </div>
+
+    <div id="member_5">
+      <button id="member5" onclick="member5()"><i class="far fa-caret-square-right" id="icon5"></i></button>
+    </div>
+
+    <div id="container_5">
+      <h2>SRC Member 6</h2>
+      <img src="Mouna_M3.jpeg" class="photo">
+      <p>MAITRI, Mouna</p>
+      <p>She is considered very passionate about working hard and her most preferable subject is English</p>
+      <a href="https://drive.google.com/file/d/1F86FmBxXl68GHw72hCEa7oqaWmUBFjdP/view?usp=drive_open">Member's Speech Link</a>
+
+      <div class="form">
+          Preference:
+            <div class="inputGroup">
+              <input value="1" id="one5" name="radio5" type="radio"/>
+              <label for="one5" class="label1">1</label>
+            </div>
+
+            <div class="inputGroup">
+              <input value="2" id="two5" name="radio5" type="radio"/>
+              <label for="two5" class="label1">2</label>
+            </div>
+
+            <div class="inputGroup">
+              <input value="3" id="three5" name="radio5" type="radio"/>
+              <label for="three5" class="label1">3</label>
+            </div>
+
+            <div class="inputGroup">
+              <input value="4" id="four5" name="radio5" type="radio"/>
+              <label for="four5" class="label1">4</label>
+            </div>
+
+            <div class="inputGroup">
+              <input value="5" id="five5" name="radio5" type="radio"/>
+              <label for="five5" class="label1">5</label>
+            </div>
+
+            <div class="inputGroup">
+              <input value="No Preference" id="NA6" name="radio5" type="radio"/>
+              <label for="NA6" class="label1">No Preference</label>
+            </div>
+      </div>
+
+    </div>
+
+    <div id="finish-off">
+      <button id="finish" onclick="done()">Submit Votes</button>
+    </div>
+
+</body>
+</html>
