@@ -32,4 +32,32 @@
             }
         }
 
+        // To store email and grade using JSON stringify and parse //
+        const grade = document.getElementById('grade').value;
+
+        localStorage.setItem("email", email); // store the email entered into localStorage //
+        localStorage.setItem(email, '{}'); // making a nested array //
+        localStorage.setItem("grade", grade); // store the grade selected of user into localStorage //
+        const emails = localStorage.getItem("emails"); // variable for storing emails //
+        if (emails) {
+            const parsed = JSON.parse(emails) // change the user input to a number //
+            const found = false;
+            parsed.forEach(element => {
+                if (element.email === email) {
+                    // parsed[email] = { "email": email } //
+                    element = { "email": email }
+                    found = true; 
+                }
+            });
+
+            if (!found) {
+                parsed.push({ "email": email });
+            }
+            localStorage.setItem("emails", JSON.stringify(parsed)); // change the user input back to string //
+        } else {
+            localStorage.setItem("emails", JSON.stringify([{ "email": email }]));
+        }
+
+        location.reload();
+    
     }
