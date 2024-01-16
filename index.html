@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+
+
+    <script language="javascript" type="text/javascript" src="page_1.js"></script>
+    <script language="javascript" type="text/javascript" src="vote.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="shortcut icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR83KLactzDfFcyV-DAKcgxilXui9i8bm3mrQ&usqp=CAU">
+    <title>SRC Voting System</title>
+</head>
+
+<body>
+    <!-- Greeting to user -->
+    <h1>Welcome to the official School Representative Council Voting website of <br><p id="aphs">Arthur Phillip High School</p></h1>
+
+    <!-- APHS School logo -->
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Arthur_Phillip_High_School_logo.png/220px-Arthur_Phillip_High_School_logo.png">
+
+    <!-- For background animation purposes -->
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <div class="content"> <!-- A small container in which the form input fields and buttons will get displayed -->
+
+        <form>
+            <!-- Input for getting user email -->
+            <div>
+                <label for="mail" class="user_mail">Enter your email</label>
+                <input id="mail" name="mail" type="email" placeholder="example.vote@aphs.nsw.edu.au" autofocus required>
+            </div>
+
+            <!-- Drop-down box for selection of user's grade -->
+            <div>
+                <label for="grade" class="voter_grade">Select your grade</label>
+                <select name="grade" id="grade" required>
+                    <option value="ChooseYear" selected disabled>-- Choose your grade --</option> <!-- Default value of drop-down box -->
+                    <option value="7" label="7"></option><br>
+                    <option value="8" label="8"></option><br>
+                    <option value="9" label="9"></option><br>
+                    <option value="10" label="10"></option><br>
+                    <option value="11" label="11"></option><br>
+                    <option value="12" label="12"></option><br>
+                    <option value="Teacher" label="Teacher"></option><br> <!-- Even teacher/staff can vote for SRC members -->
+                </select>
+            </div>
+
+            <!-- For security purposes, a unique key to confirm that client's email is not unauthorisedly accessed -->
+            <div id="unique_key">
+                <label for="unique" class="uniquekey">Enter the unique identification key given to you</label>
+                <input id="unique" name="unique" type="text" placeholder="1-EX-AM-PLE-07">
+            </div>
+
+            <div>
+                <!-- "proceed" button to go to next page according to validation and "reset" button to reset the details inputted -->
+                <button type="submit" id="submit" onclick="next()">Proceed</button>
+                <button type="reset" id="reset" onclick="restart()">Reset</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
