@@ -443,6 +443,43 @@ img {
     cursor: pointer;
 }
 
+/* For radio buttons */
+#one, #two, #three, #four, #five, #NA {
+    padding: 15px;
+    background-color: #cccccc;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#finish {
+    border: 1.5px outset black;
+    border-radius: 6px;
+    background-color: rgb(223, 84, 84);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: white;
+    padding: 3px;
+    height: 40px;
+    width: 150px;
+    transition-duration: 0.3s;
+    position: relative;
+    display: none;
+    transform: translateY(-1200%);
+}
+
+#finish:hover {
+    cursor: pointer;
+    background-color: rgb(54, 54, 54);
+    color: white;
+    border-radius: 6px;
+    border: 1.5px outset black;
+}
+
+
 
 
 
