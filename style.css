@@ -410,5 +410,39 @@ img {
     display: none;
 }
 
+/* For "next member" button */
+
+/* #inst {
+    make it stay on the left (default/auto);
+} */
+
+#move {
+    border: 1.5px outset black;
+    border-radius: 6px;
+    background-color: silver;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: black;
+    padding: 3px;
+    height: 40px;
+    width: 100px;
+    transition-duration: 0.4s;
+    position: relative;
+}
+
+#move:hover {
+    cursor: pointer;
+    background-color: grey;
+    color: white;
+    border-radius: 6px;
+    border: 1.5px outset black;
+}
+
+#grade:hover::after {
+    cursor: pointer;
+}
+
+
 
 
