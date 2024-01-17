@@ -82,6 +82,12 @@
             box-shadow: 2px 2px 12px rgba(0,0,0,0.2), -1px -1px 8px rgba(0,0,0,0.2);
         }
 
+        /* When you resize and play around with the web page size, some of the table parts get covered, to prevent this issue and make the whole table appear in any size of the web page */
+        @media only screen and (max-width: 768px) {
+            table {
+                width: 90%;
+            }
+        }
     </style>
 
     <p id="display"></p>
