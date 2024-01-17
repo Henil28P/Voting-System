@@ -180,3 +180,30 @@ img {
   /* Animation CSS code for animating background */
 
 
+  /* Styles to "START" button */
+#submit, #reset {
+    border: 1.5px outset black;
+    border-radius: 8px;
+    background-color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: black;
+    padding: 5px;
+    height: 50px;
+    width: 100px;
+    transition-duration: 0.5s;
+}
+
+#submit:hover, #reset:hover {
+    cursor: pointer;
+    background-color: rgb(58, 58, 54);
+    color: white;
+    background-color: rgb(58, 58, 54);
+}
+
+/* form {
+    background-color: lightgreen;
+} */
+
+
