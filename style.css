@@ -1,0 +1,39 @@
+/* Filename: style.css */
+html {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    text-align: center;
+    float: none;
+    background-color: lightgray;
+    color: black;
+    opacity: 65%;
+}
+
+body {
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    overflow-x: hidden; /* To avoid thee horizontal scroll bat and empty grey space on screen */
+}
+/* body {
+    margin: 0;
+} */
+
+#countdown_Timer {
+    position: absolute;
+    text-align: center;
+    font-size: 55px;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+#aphs {
+    color: rgb(0, 119, 255);
+}
