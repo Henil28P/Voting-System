@@ -37,3 +37,146 @@ body {
 #aphs {
     color: rgb(0, 119, 255);
 }
+
+  /* Animation CSS code for animating background */
+.bg {
+    animation: slide 7.5s ease-in-out infinite alternate;
+    background-image: linear-gradient(-80deg, white 50%, grey 50%);
+    bottom: 0;
+    left: -50%;
+    opacity: .5;
+    position: fixed;
+    right: -50%;
+    top: 0;
+    z-index: -1;
+}
+
+.bg2 {
+    animation-direction: alternate-reverse;
+    animation-duration: 8.5s;
+}
+
+.bg3 {
+    animation-duration: 9.5s;
+}
+
+.content {
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: .25em;
+    box-shadow: 0 0 .50em rgba(136, 113, 113, 0.199);
+    box-sizing: border-box;
+    left: 50%;
+    padding: 10vmin;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, 10%);
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 35px;
+}
+
+img {
+    height: auto;
+    width: auto;
+}
+
+#mail {
+    border: 3px solid rgb(63, 153, 255);
+    border-radius: 1px;
+    padding: 10px 20px;
+    text-align: center;
+    margin-bottom: 25px;
+    width: auto;
+    /* background-color: rgb(58, 54, 54); */
+    color: rgb(58, 58, 54);
+}
+
+#mail:hover {
+    box-shadow: 8px 8px 12px darkgrey;
+    transition-duration: 0.8s;
+    background-color: rgb(238, 231, 231);
+    /* transform: scale(1.1); */
+}
+
+.user_mail {
+    color: black;
+    font-size: 20px;
+    border-radius: 12px;
+}
+
+#grade {
+    border: 3px solid rgb(63, 153, 255);
+    border-radius: 3px;
+    padding: 10px 22px;
+    text-align: center;
+    margin-bottom: 25px;
+    background-color: transparent;
+    color: black;
+    transition-duration: 0.5s;
+}
+
+#grade:hover {
+    cursor: pointer;
+    background-color: rgb(204, 204, 204);
+    box-shadow: 8px 8px 12px darkgrey;
+}
+
+.voter_grade {
+    color: black;
+    font-size: 20px;
+    border-radius: 12px;
+}
+
+#unique_key {
+    display: none;
+    border: 3px solid rgb(63, 153, 255);
+    border-radius: 1px;
+    padding: 10px 20px;
+    text-align: center;
+    margin-bottom: 25px;
+    width: auto;
+    /* background-color: rgb(58, 54, 54); */
+    color: rgb(58, 58, 54);
+}
+
+/* .unique_key {
+    display: none;
+    color: black;
+    font-size: 20px;
+    border-radius: 12px;
+}
+
+#unique {
+    display: none;
+    border: 3px solid rgb(63, 153, 255);
+    border-radius: 1px;
+    padding: 10px 20px;
+    text-align: center;
+    margin-bottom: 25px;
+    width: auto;
+    /* background-color: rgb(58, 54, 54); */
+    /* color: rgb(58, 58, 54);
+} */
+
+#unique_key:hover {
+    box-shadow: 8px 8px 12px darkgrey;
+    transition-duration: 0.8s;
+    background-color: rgb(238, 231, 231);
+}
+
+@keyframes slide {
+    0% {
+      transform: translateX(-25%);
+    }
+
+    100% {
+      transform: translateX(25%);
+    }
+}
+
+  /* Animation CSS code for animating background */
+
+
