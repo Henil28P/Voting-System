@@ -92,5 +92,22 @@
 
     <p id="display"></p>
 
+    <script>
+        // locate the items stored in localStorage and retrieve them to display on this web page //
+
+        const emails = localStorage.getItem("emails")
+
+        if (emails) {
+            const parsed = JSON.parse(emails)
+
+            parsed.forEach(e => {
+                console.log(e.email)
+                const d = document.getElementById("display")
+                const div = document.createElement("div")
+                div.innerHTML = `<span>${e.email} ----------> ${e.member1} ---------- ${e.member2} ------------ ${e.member3} -------------- ${e.member4} --------------- ${e.member5} --------------- ${e.finish} </span><br><hr>`
+                d.appendChild(div)
+            })
+        }
+    </script>
 </body>
 </html>
